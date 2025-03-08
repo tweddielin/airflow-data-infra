@@ -1,0 +1,11 @@
+apache-airflow-providers-amazon==8.1.0
+apache-airflow-providers-postgres==5.6.0
+apache-airflow-providers-http==4.5.0
+apache-airflow-providers-ssh==3.7.1
+apache-airflow-providers-docker==3.7.1
+boto3==1.28.38
+psycopg2-binary==2.9.7
+pandas==2.0.3
+numpy==1.25.2
+prometheus-client==0.17.1
+sqlalchemy==1.4.49 
