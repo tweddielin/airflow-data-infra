@@ -4,7 +4,7 @@ A reusable infrastructure for distributed data processing using Apache Airflow, 
 
 ## Architecture
 
-```
+```mermaid
 graph TD
     subgraph S3["AWS S3"]
         S3Data["Data Dumps<br/>(Partitioned)"]
