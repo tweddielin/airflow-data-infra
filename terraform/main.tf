@@ -6,11 +6,17 @@ terraform {
     }
   }
   
-  backend "s3" {
-    bucket = "terraform-state-airflow-data-infra"
-    key    = "terraform.tfstate"
-    region = "us-east-1"
+  # Use local backend for testing
+  backend "local" {
+    path = "terraform.tfstate"
   }
+  
+  # Uncomment for AWS deployment
+  # backend "s3" {
+  #   bucket = "terraform-state-airflow-data-infra"
+  #   key    = "terraform.tfstate"
+  #   region = "us-east-1"
+  # }
 }
 
 provider "aws" {
@@ -78,7 +84,7 @@ module "airflow" {
   project_name    = var.project_name
   environment     = var.environment
   vpc_id          = module.vpc.vpc_id
-  subnet_ids      = module.vpc.private_subnet_ids
+  subnet_ids      = module.vpc.public_subnet_ids
   security_group_ids = [module.security_groups.airflow_sg_id]
   
   instance_type   = var.airflow_instance_type

@@ -1,5 +1,6 @@
 resource "aws_s3_bucket" "raw_data" {
-  bucket = var.raw_data_bucket_name
+  bucket        = var.raw_data_bucket_name
+  force_destroy = true
   
   tags = merge(
     var.tags,
@@ -29,7 +30,8 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "raw_data" {
 }
 
 resource "aws_s3_bucket" "processed_data" {
-  bucket = var.processed_data_bucket_name
+  bucket        = var.processed_data_bucket_name
+  force_destroy = true
   
   tags = merge(
     var.tags,
